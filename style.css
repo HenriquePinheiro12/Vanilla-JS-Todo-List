@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins'
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(119, 87, 87)
+}
+
+h1{
+    font-weight: 800;
+    color: rgb(233, 134, 21)
+}
+
+.todo-list-container{
+    width: 600px;
+    max-width: 90%
+}
+
+
+.add-btn{
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+    opacity: 0.8;
+    /* practicing transition */
+    transition-property:opacity;
+    transition-duration: .2s;
+    transition-timing-function: ease-in; 
+    transition-delay: 0s;
+    margin-left: 1rem
+}
+
+.add-btn:hover{
+    opacity: 1
+}
+
+.todo-list{
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.todo-element, .todo-input{
+    position: relative;
+    color: #fff;
+    padding: .5rem 1rem;   
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    transition: background-color .2s ease-in-out;
+}
+/* 
+.todo-input{
+    background-color: rgba(255, 255, 255, 0.3);
+} */
+
+.todo-input input{
+    background: none;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding-bottom: 5px;
+    padding-left:5px
+}
+
+.todo-element:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.todo-element::after{
+    content: '';
+    position: absolute;
+    left: 1rem;
+    width: 90%;
+    bottom: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.todo-element svg{
+    cursor:pointer
+}
+.todo-element div input{
+    margin-right: .5rem
+}
