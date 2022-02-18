@@ -7,8 +7,6 @@ const todoList = [];
 // when [Esq] is clicked removes the input
 // When dbclick in task name, enables to rename it (will must splice it with a new object using data-index)
 
-
-
 const renderInput = e => {
     /*
         <li class="todo-input">
@@ -95,6 +93,3 @@ window.addEventListener('click', e => {
     renderList(todoList)
 })
 $addBtn.addEventListener('click', renderInput)
-window.addEventListener('keydown', e => {
-    // add a new input with [SHIFT + N]
-})
