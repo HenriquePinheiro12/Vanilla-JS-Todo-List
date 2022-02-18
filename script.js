@@ -2,6 +2,13 @@ const $addBtn = document.querySelector('.add-btn')
 const $listContainer = document.querySelector('ul.todo-list')
 const todoList = [];
 
+// TODO
+// cannot add blank todos
+// when [Esq] is clicked removes the input
+// When dbclick in task name, enables to rename it (will must splice it with a new object using data-index)
+
+
+
 const renderInput = e => {
     /*
         <li class="todo-input">
@@ -9,10 +16,13 @@ const renderInput = e => {
         </li>
     
     */
+    if(Boolean($listContainer.childElementCount > 0 && $listContainer.lastElementChild.matches('li.todo-input'))) return
+
     const li = document.createElement('li')
     li.classList.add('todo-input')
     const input = document.createElement('input')
     input.type = 'text'
+    input.placeholder = 'Type your task'
 
     li.append(input)
     $listContainer.append(li)
@@ -85,3 +95,6 @@ window.addEventListener('click', e => {
     renderList(todoList)
 })
 $addBtn.addEventListener('click', renderInput)
+window.addEventListener('keydown', e => {
+    // add a new input with [SHIFT + N]
+})
