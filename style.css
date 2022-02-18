@@ -92,8 +92,16 @@ h1{
     background-color: rgba(255, 255, 255, 0.5);
 }
 .todo-element svg{
-    cursor:pointer
+    cursor:pointer;
+    pointer-events: none;
 }
+
+.svg-container{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
 .todo-element div input{
     margin-right: .5rem
 }
