@@ -71,7 +71,7 @@ const renderList = currentList => {
         
         const input = document.createElement('input')
         input.setAttribute('type','checkbox')
-        input.setAttribute('checked', String(todo.checked))
+        if(todo.checked) input.setAttribute('checked', todo.checked)
         input.addEventListener('change', e => todoList[index].checked = e.target.checked)
         // adds the listener to each input in iteration
         
