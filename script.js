@@ -105,13 +105,13 @@ const renameTodo = e => {
     const input = document.createElement('input')
     input.setAttribute('type', 'text')
     input.setAttribute('placeholder', 'Type your task')
-    input.setAttribute('value', currentContent)
     input.classList.add('rename-input')
-
+    input.setAttribute('value', currentContent)
 
     targetTaskName.remove()
     parent.append(input)
     input.focus()
+
     input.addEventListener('keydown', e => {
         if(e.key === 'Escape'){
             renderList(todoList)
