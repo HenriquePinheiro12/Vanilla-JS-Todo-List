@@ -115,3 +115,15 @@ h1{
 .todo-element div input{
     margin-right: .5rem
 }
+
+.todo-element .rename-input{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
+}
+
+.todo-element .rename-input:focus{
+    border: none;
+    outline: none;
+}

@@ -3,17 +3,19 @@ const $listContainer = document.querySelector('ul.todo-list')
 const todoList = [];
 
 // TODO
-// cannot add blank todos
-// when [Esq] is clicked removes the input
-// When dbclick in task name, enables to rename it (will must splice it with a new object using data-index)
+// - [] cannot add blank todos
+// - [] when [Esq] is clicked removes the input
+// - [] When dbclick in task name, enables to rename it (will must splice it with a new object using data-index)
+
 
 const renderInput = e => {
     /*
         <li class="todo-input">
-            <input type="text"></input>
+            <input type="text" placeholder="Type your task"></input>
         </li>
-    
     */
+
+    // checks if the last element whas tipe
     if(Boolean($listContainer.childElementCount > 0 && $listContainer.lastElementChild.matches('li.todo-input'))) return
 
     const li = document.createElement('li')
@@ -27,13 +29,13 @@ const renderInput = e => {
     input.focus()
     input.addEventListener('keydown', e => {
         if(e.key !== 'Enter') return
-        
+    
         const content = e.target.value
         setTodo(content)
         e.target.remove()
     })
 }
-const setTodo = (content) => {
+const setTodo = content => {
     todoList.push({
         content: content,
         checked : false
@@ -78,6 +80,8 @@ const renderList = currentList => {
         const span = document.createElement('span')
         span.innerText = todo.content
         
+        span.addEventListener('dblclick', renameTodo)
+
         div.append(input, span)
         
         $listContainer.append(todoElement)
@@ -85,11 +89,44 @@ const renderList = currentList => {
     feather.replace()
 }
 
-window.addEventListener('click', e => {
+const removeTodo = e => {
     if(!e.target.matches('.svg-container')) return
     const {target} = e
     const {index} = target.closest('.todo-element').dataset
     todoList.splice(index, 1)
     renderList(todoList)
-})
+}
+
+const renameTodo = e => {
+    // use data-index
+    // append input / remove element 
+    // sets the content prop in that arrray element
+    // renderList
+    const {target: targetTaskName} = e
+    const parent = targetTaskName.parentNode
+    const {index} = parent.closest('.todo-element').dataset 
+
+    const input = document.createElement('input')
+    input.setAttribute('type', 'text')
+    input.setAttribute('placeholder', 'Type your task')
+    input.classList.add('rename-input')
+
+
+    targetTaskName.remove()
+    parent.append(input)
+    input.focus()
+
+
+    input.addEventListener('keydown', e => {
+        if(e.key !== 'Enter') return
+        const content = e.target.value
+
+        console.log(index)
+        todoList[index].content = content
+        e.target.remove()
+        renderList(todoList)
+    })
+}
+
+window.addEventListener('click', removeTodo)
 $addBtn.addEventListener('click', renderInput)
