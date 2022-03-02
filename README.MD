@@ -11,7 +11,7 @@ Simple todo app built to practice DOM manipulation with Vanilla JavaScript.
 
 ## New features soon 🌠
 
-- [] To-dos localy storaged
+- [] local storage
 
 ## Author 🧑‍💻
 
