@@ -6,7 +6,7 @@ Simple todo app built to practice DOM manipulation with Vanilla JavaScript.
 
 ## Screenshots 📸
 
-![Desktop screenshot](images/print-mobile.png)
+![Desktop screenshot](images/print-desktop.png)
 
 ![Mobile screenshot](images/print-mobile.png)
 
